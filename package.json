@@ -1,0 +1,37 @@
+{
+  "name": "bookmark-nav",
+  "version": "0.3.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "extension:firefox:prepare": "node scripts/prepare-firefox-extension.mjs",
+    "extension:firefox": "node scripts/prepare-firefox-extension.mjs && web-ext run --source-dir=out-firefox",
+    "extension:firefox:lint": "node scripts/prepare-firefox-extension.mjs && web-ext lint --source-dir=out-firefox",
+    "extension:firefox:package": "npm run build && node scripts/prepare-firefox-extension.mjs && web-ext lint --source-dir=out-firefox && web-ext build --source-dir=out-firefox --artifacts-dir=dist/firefox --overwrite-dest",
+    "extension:firefox:sign": "node scripts/prepare-firefox-extension.mjs && web-ext sign --source-dir=out-firefox --channel=unlisted --api-key=\"$AMO_JWT_ISSUER\" --api-secret=\"$AMO_JWT_SECRET\"",
+    "sync-worker:typecheck": "tsc --noEmit -p sync-worker/tsconfig.json",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "next": "15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/webextension-polyfill": "^0.12.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5",
+    "web-ext": "^8.3.0"
+  }
+}

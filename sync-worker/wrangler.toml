@@ -1,0 +1,13 @@
+name = "bookmark-nav-sync"
+main = "src/index.ts"
+compatibility_date = "2026-05-08"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bookmark_nav_sync"
+database_id = "4d0fdfc2-6b77-4543-b12f-26c62573e437"
+
+[vars]
+ALLOWED_EXTENSION_REDIRECT_ORIGINS = "http://localhost:3000,https://bookmark-nav-sync.sarainosakura.workers.dev"
+ALLOWED_EXTENSION_ORIGINS = "http://localhost:3000"
+SESSION_TTL_DAYS = "30"

@@ -1,0 +1,16 @@
+.DS_Store
+.env*
+!.env.example
+.next/
+node_modules/
+out/
+out-firefox/
+dist/
+web-ext-artifacts/
+bookmark-extension/
+sync-worker/.dev.vars
+sync-worker/.wrangler/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
